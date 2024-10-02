@@ -47,13 +47,13 @@ class NIRA(commands.Bot):
 
         self.color = Color
 
-        self._session = aiohttp.ClientSession()
+        self._session: aiohttp.ClientSession | None = None
         # self.main_prefix: str = (lambda x: x[0] if type(x) in [list, tuple, set] else x)(**kwargs[""])
         return super().__init__(*args, **kwargs)
 
     @property
     def session(self) -> aiohttp.ClientSession:
-        if self._session.closed:
+        if not self._session or self._session.closed:
             self._session = aiohttp.ClientSession(loop=self.loop)
         return self._session
 
