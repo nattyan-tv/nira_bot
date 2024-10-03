@@ -1,7 +1,8 @@
 import aiohttp
 import asyncio
-import importlib
 import datetime
+import importlib
+import logging
 import os
 import random
 import re
@@ -1051,7 +1052,10 @@ class NormalReaction(commands.Cog):
 
     @tasks.loop(seconds=30)
     async def database_update_loop(self):
-        await self.database_update()
+        try:
+            await self.database_update()
+        except Exception as err:
+            logging.error(err)
 
 
 def setup(bot: NIRA):
