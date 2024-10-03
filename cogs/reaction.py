@@ -617,6 +617,14 @@ class ReactionControll(commands.Cog):
 
         await interaction.send(f"リアクションの設定を更新しました。\n{DBDelayMessage}", ephemeral=True)
 
+    @nr_slash.subcommand(name="updated", description="Displays the last time the reaction database was retrieved.")
+    async def updated_nr_slash(self, interaction: Interaction):
+        cog = self.bot.get_cog("NormalReaction")
+        if cog:
+            await interaction.send(cog.last_update if cog.last_update else "まだデータが読み込まれていません。", ephemeral=True)
+        else:
+            await interaction.send("現在このBOTでは反応する機能は有効化されていません。", ephemeral=True)
+
     @commands.command(name="line", help="""\
 DiscordのメッセージをLINEに送信します。
 LINE Notifyという機能を用いて、DiscordのメッセージをLINEに送信します。
@@ -1006,7 +1014,7 @@ class NormalReaction(commands.Cog):
         # 追加反応
         if extedned_reaction:
             ex_reaction_list = [
-                d for d in self.ex_reaction_list if d["guild_id"] == message.guild.id]
+                d for d in self.ex_reaction_list if d["guild_id"] == message.guild.id and re.search(d["trigger"], message.content)]
             for reaction in ex_reaction_list:
                 reaction_content = reaction["return"]
                 reaction_contents: list[str] = []
