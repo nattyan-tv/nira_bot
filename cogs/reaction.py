@@ -1115,9 +1115,9 @@ class EmojiReaction(Reaction):
 
 
 NiraRegex: typing.Final[str] = (
-    r"にら|ニラ|nira|garlic|韮|Chinese chives|Allium tuberosum|てりじの|テリジノ"
+    r"にら|ニラ|nira|garlic|韮|Chinese chives|Allium tuberosum"
 )
-AndNira: typing.Final[str] = r"^(?=.*{})".format(NiraRegex) + r"(?=.*{}).*$"
+AndNira: typing.Final[str] = r"^(?=.*({}))".format(NiraRegex) + r"(?=.*({})).*$"
 
 Reactions: typing.Final[list[Reaction]] = [
     TextReaction(r"(´・ω・｀)", "(´・ω・｀)"),
