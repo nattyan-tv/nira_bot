@@ -1191,11 +1191,11 @@ Reactions: typing.Final[list[Reaction]] = [
     ),
     DesignatedFileReaction(
         "(かな|悲)しい|(つら|辛)い|ぴえん|かわいそう|泣(きそう|く)|:pleading_face:|:cry:|:sob:|:weary:|:smiling_face_with_tear:",
-        "kawaisou.jpg",
+        "kawaisou.png",
     ),
     FileReaction("さばかん|鯖缶|サバカン", "sabakan.jpg"),
     DesignatedFileReaction("訴え|訴訟", "sosyou.jpg"),
-    FileReaction("しゅうじん|囚人|シュウジン|罪人", "syuuzin.jpg"),
+    FileReaction("しゅうじん|囚人|シュウジン|罪人", "syuuzin.png"),
     FileReaction(
         "bsod|BSOD|ブルスク|ブルースクリーン|ブラックスクリーン",
         "bsod_1.jpg",
