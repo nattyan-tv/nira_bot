@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  nirabot:
+    build: .
+    image: nirabot-image
+    container_name: nirabot
+    volumes:
+      - ./setting.json:/app/setting.json
