@@ -690,6 +690,7 @@ class ReactionControll(commands.Cog):
         pass
 
     @application_checks.guild_only()
+    @application_checks.has_permissions(manage_guild=True)
     @channel_nr_slash.subcommand(
         name="normal", description="Setting of Normal Reaction in Channel"
     )
@@ -735,6 +736,7 @@ class ReactionControll(commands.Cog):
         )
 
     @application_checks.guild_only()
+    @application_checks.has_permissions(manage_guild=True)
     @channel_nr_slash.subcommand(
         name="extended", description="Setting of Extended Reaction in Channel"
     )
@@ -786,6 +788,7 @@ class ReactionControll(commands.Cog):
         pass
 
     @application_checks.guild_only()
+    @application_checks.has_permissions(manage_guild=True)
     @server_nr_slash.subcommand(
         name="normal", description="Setting of Normal Reaction in Server"
     )
@@ -831,6 +834,7 @@ class ReactionControll(commands.Cog):
         )
 
     @application_checks.guild_only()
+    @application_checks.has_permissions(manage_guild=True)
     @server_nr_slash.subcommand(
         name="extended", description="Setting of Extended Reaction in Server"
     )
@@ -876,6 +880,7 @@ class ReactionControll(commands.Cog):
         )
 
     @application_checks.guild_only()
+    @application_checks.has_permissions(manage_guild=True)
     @nr_slash.subcommand(
         name="status", description="Display the status of Nira Reaction"
     )
